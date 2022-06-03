@@ -1,0 +1,29 @@
+<%@ page contentType="text/html; charset=utf-8"%>
+
+<%@ page import="dto.Product"%>
+<%@ page import="dao.ProductRepository"%>
+<%@ page import="java.util.ArrayList" %>
+
+<%
+String id = request.getParameter("id");
+if (id == null || id.trim().equals("")) {
+	response.sendRedirect("products.jsp");
+	return;
+}
+
+ProductRepository = dao.getProductById(id);
+%>
+
+<!DOCTYPE html>
+<html>
+
+<jsp:include page="header.jsp" />
+
+<body>
+	<jsp:include page="menu.jsp" />
+	
+</body>
+
+<jsp:include page="footer.jsp" />
+
+</html>

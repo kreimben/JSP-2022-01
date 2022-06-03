@@ -1,0 +1,62 @@
+<%@ page contentType="text/html; charset=utf-8"%>
+
+<%@ page import="dto.Product"%>
+<%@ page import="dao.ProductRepository"%>
+<%@ page import="java.util.ArrayList"%>
+
+<!doctype html>
+<html>
+<jsp:include page="header.jsp" />
+
+<%
+String cartId = session.getId();
+%>
+
+<body>
+	<jsp:include page="menu.jsp" />
+	<div class="jumbotron">
+		<div class="container">
+			<h1 class="display-3">장바구니</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<table width="100%">
+				<tr>
+					<td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId%>"
+						class="btn btn-danger">삭제하기</a></td>
+					<td align=right"><a href="#" class="btn btn-success">주문하기</a></td>
+			</table>
+		</div>
+	</div>
+
+	<div style="padding-top: 50px">
+		<table class="table table-hover">
+			<tr>
+				<th>상품</th>
+				<th>가격</th>
+				<th>수량</th>
+				<th>소계</th>
+				<th>비고</th>
+			</tr>
+
+			<%
+			int sum = 0;
+			ArrayList<Product> cartList = (ArrayList<Product>) session.getAttribute("cartlist");
+			if (cartList == null)
+				cartList = new ArrayList<Product>();
+
+			for (int i = 0; i < cartList.size(); i++) {
+				Product product = cartList.get(i);
+				int total = product.getUnitPrice() * product.getQuantity();
+				sum += total;
+			}
+			%>
+		</table>
+	</div>
+</body>
+
+<jsp:include page="footer.jsp" />
+
+</html>

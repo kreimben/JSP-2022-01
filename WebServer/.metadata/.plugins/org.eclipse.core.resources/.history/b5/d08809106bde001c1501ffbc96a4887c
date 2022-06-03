@@ -1,0 +1,19 @@
+// Korean
+title = 상품 등록
+productId = 상품 코드
+pname = 상품명
+unitPrice = 가격
+description = 상세 설명
+publish = 출판사
+category = 분류
+unitsInStock = 재고 수
+condition = 상태
+productImage = 이미지
+condition_New = 신규 제품
+condition_Old = 중고 제품
+condition_Refurbished = 재생 제품
+button = 등록
+logout = 로그아웃
+not_found_product_id = 요청하신 제품을 찾을 수 없습니다.
+not_found_page = 요청하신 페이지를 찾을 수 없습니다.
+product_list = 상품 목록

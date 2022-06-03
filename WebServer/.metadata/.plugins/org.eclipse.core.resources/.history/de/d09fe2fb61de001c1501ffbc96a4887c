@@ -1,0 +1,11 @@
+<%@ page contentType="text/html; charset=utf-8"%>
+
+<%@ page import="dto.Product"%>
+<%@ page import="dao.ProductRepository"%>
+
+<!DOCTYPE html>
+<html>
+
+<jsp:include page="header.jsp" /><jsp:include
+		page="menu.jsp" /></body>
+</html>

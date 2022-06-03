@@ -1,0 +1,78 @@
+package dao;
+
+import java.util.ArrayList;
+
+import dto.Product;
+
+public class ProductRepository {
+
+	private ArrayList<Product> listOfProducts = new ArrayList<Product>();
+	private static ProductRepository instance = new ProductRepository();
+
+	public static ProductRepository getInstance() {
+		return instance;
+	}
+
+	public void addProduct(Product product) {
+		if (this.checkDuplicatedProductCode(product.getProductId()))
+			listOfProducts.add(product);
+	}
+
+	private boolean checkDuplicatedProductCode(String productCode) {
+
+		if (this.getProductById(productCode) == null)
+			return true;
+		else
+			return false;
+	}
+
+	public ProductRepository() {
+		Product phone = new Product("P1234", "재밌는 책1", 15000);
+		phone.setDescription("재밌습니다.");
+		phone.setCategory("자기계발");
+		phone.setPublisher("하나출판사");
+		phone.setUnitsInStock(1000);
+		phone.setCondition("new");
+		phone.setFilename(phone.getProductId() + ".png");
+
+		Product notebook = new Product("P1235", "LG PC Gram", 1500000);
+		notebook.setDescription("13.3-Inch");
+		notebook.setCategory("Notebook");
+		notebook.setPublisher("LG");
+		notebook.setUnitsInStock(1000);
+		notebook.setCondition("Refurbished");
+		notebook.setFilename(notebook.getProductId() + ".png");
+
+		Product tablet = new Product("P1236", "Galaxy Tab S", 900000);
+		tablet.setDescription("212.8*125.6*6.6mm");
+		tablet.setCategory("Tablet");
+		tablet.setPublisher("Samsung");
+		tablet.setUnitsInStock(1000);
+		tablet.setCondition("Old");
+		tablet.setFilename(tablet.getProductId() + ".png");
+
+		listOfProducts.add(phone);
+		listOfProducts.add(notebook);
+		listOfProducts.add(tablet);
+	}
+
+	public ArrayList<Product> getAllProducts() {
+
+		return listOfProducts;
+	}
+
+	public Product getProductById(String productId) {
+
+		Product productById = null;
+
+		for (int i = 0; i < listOfProducts.size(); i++) {
+			Product product = listOfProducts.get(i);
+			if (product != null && product.getProductId() != null && product.getProductId().equals(productId)) {
+				productById = product;
+				break;
+			}
+		}
+
+		return productById;
+	}
+}

@@ -1,0 +1,16 @@
+1653701838938	Move 8 resources to 'WebContent'
+1653701899936	Move 'bootstrap.min.css' to 'css'
+1653701903765	Move 'validation.js' to 'js'
+1653701910231	Move 3 resources to 'images'
+1653701915691	Delete elements
+1653701950604	Delete element
+1653702004969	Rename package 'bundle'
+1653702025517	Copy files
+1653702030665	Delete element
+1653718874174	Move 'login.jsp' to 'WebContent'
+1653723909315	Delete element
+1653723942578	Delete element
+1653731293132	Rename field 'manufacturer'
+1653731449905	Rename local variable 'phone'
+1653731468432	Rename local variable 'notebook'
+1653731476942	Rename local variable 'tablet'
